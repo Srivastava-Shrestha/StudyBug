@@ -67,6 +67,16 @@ python run.py
 <hr>
 
 ## 📸 Screenshots
+![Login](https://github.com/Srivastava-Shrestha/Assets/blob/main/StudyBug/StudyBug12.png)
+![Signup](https://github.com/Srivastava-Shrestha/Assets/blob/main/StudyBug/StudyBug13.png)
+![Admin Dashboard](https://github.com/Srivastava-Shrestha/Assets/blob/main/StudyBug/StudyBug1.png)
+![Admin Dashboard](https://github.com/Srivastava-Shrestha/Assets/blob/main/StudyBug/StudyBug2.png)
+![User Dashboard](https://github.com/Srivastava-Shrestha/Assets/blob/main/StudyBug/StudyBug7.png)
+![User Dashboard](https://github.com/Srivastava-Shrestha/Assets/blob/main/StudyBug/StudyBug10.png)
+![User Dashboard](https://github.com/Srivastava-Shrestha/Assets/blob/main/StudyBug/StudyBug11.png)
+![404](https://github.com/Srivastava-Shrestha/Assets/blob/main/StudyBug/StudyBug14.png)
+
+
 
 
 
