@@ -1,0 +1,95 @@
+{%extends "admin_base.html"%}
+{%block title%} Users {%endblock%}
+{%block content%}
+
+<div class="">
+
+    <div class="d-flex  m-3 mb-4">
+        <div class="d-flex justify-content-center align-items-center ">
+            <form method="POST">
+                <input type="hidden" name="_method" value="search">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search User" aria-label="Search" name="username">
+                    <button class="btn btn-outline-secondary search" type="submit" id="search"><i class="ri-search-eye-line"></i></button>
+                  </div>
+            </form>
+        </div>
+        <div class="d-flex ml-5 text-center">
+            <h3 class="jagah">Users</h3>
+        </div>
+    </div>
+    <div class="user-table">
+        <table class="table table-striped table-hover table-bordered text-center align-middle mb-0 mx-0">
+            <thead>
+                <tr>
+                    <th scope="col">User ID</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Courses Enrolled</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                {%for user in users%}
+                <tr>
+                    <th scope="row">#{{user.user_id}}</th>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.enrolls | length}}</td>
+                    <td>
+                        <button type="submit" class="user-delete-btn" data-bs-toggle="modal"
+                            data-bs-target="#delete_{{user.user_id}}">Remove
+                            <i class="ri-delete-bin-6-line"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <!-- Delete Model -->
+                <div class="modal fade" id="delete_{{user.user_id}}" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5">Delete Chapter</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure want to delete {{user.username}}?
+                            </div>
+                            <div class="modal-footer">
+                                <form method="POST">
+                                    <input type="hidden" name="_method" value="delete">
+                                    <input type="hidden" name="user_id" value="{{user.user_id}}">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="delete-btn">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{%endblock%}

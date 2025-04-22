@@ -1,0 +1,55 @@
+{%extends "user_base.html"%}
+{%block title%}Dashboard{%endblock%}
+{%block content%}
+
+
+<div>
+    <h3 class="text-muted text-start m-2 ms-3">My Courses</h3>
+</div>
+
+{%if enroll_courses%}
+
+<div class="test">
+    
+    {% for each in enroll_courses %}
+    <a class="text-decoration-none" href="/dashboard/course/{{each.course_id}}">
+
+        <div class="course_card">
+            <div class="course_pic">
+                <img src="{{ url_for('static', filename='image/courses/' + each.image) }}" alt="course pic">
+            </div>
+            <div class="course_body">
+                <h5>{{each.name}}</h5>
+                <p class="card-text text-wrap"> {{each.description}} </p>
+            </div>
+        </div>
+    </a>
+    {%endfor%}
+    {%else%}
+    <div class="mt-3 card mb-3 d-flex justify-content-center align-items-center ">
+        <img src="{{ url_for('static', filename='image/not_found1.svg') }}" , height="500px" alt="not_found">
+        <div class="text-center mb-4">
+            <h3 class="rang">Blank spaces are for new beginnings—why not start with a course?</h3>
+        </div>
+
+    </div>
+</div>
+{%endif%}
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {%endblock%}

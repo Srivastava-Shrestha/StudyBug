@@ -1,0 +1,203 @@
+{%extends "admin_base.html"%}
+{%block title%}Admin_Quiz{%endblock%}
+{%block content%}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_quiz.css') }}">
+{% endblock %}
+<div>
+    <div class="">
+        <div class="d-flex justify-content-between ms-4 mt-3 mb-3">
+            <div class="">
+                <h3 class="text-muted">Quiz</h3>
+            </div>
+            <div>
+                <button type="submit" class="add_btn " data-bs-toggle="modal" data-bs-target="#create">
+                    <i class="ri-add-circle-line icon"></i>Add New Quiz
+                </button>
+            </div>
+        </div>
+        </div>
+
+        <!-- Create Model -->
+        <div class="modal fade" id="create" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Create New Quiz</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form method="POST">
+                        <input type="hidden" name="_method" value="create">
+                        <div class="modal-body">
+                            <!-- Course Dropdown -->
+                            <div class="mb-3">
+                                <label for="course_id" class="form-label">Select Course:</label>
+                                <select id="course_id" name="course_id" class="form-select selected" required>
+                                    <option value=""> Select Course </option>
+                                    {% for course in courses_list %}
+                                    <option value="{{ course.course_id }}">{{ course.name }}</option>
+                                    {% endfor %}
+                                </select>
+
+                                <!-- Chapter Dropdown -->
+                                <div class="mb-3">
+                                    <label for="chapter_id" class="form-label mt-2">Select Chapter:</label>
+                                    <select id="chapter_id" name="chapter_id" class="form-select selected" required>
+                                        <option value=""> Select Chapter </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="q_title" class="col-form-label">Title:</label>
+                                <input type="text" id="q_title" name="title">
+                            </div>
+                            <div class="mb-3">
+                                <label for="quiz_d" class="col-form-label">Quiz Date:</label>
+                                <input type="date" id="quiz_d" name="quiz_date">
+                            </div>
+                            <div>
+                                <label for="q_duration" class="col-form-label">Duration:</label>
+                                <input type="number" name="duration" id="q_duration">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%if chapter_details%}
+    <div class="doori">
+        {%for chapter in chapter_details%}
+        <div class="quiz_card d-flex text-center">
+            <h3 class="my-2">{{chapter.name}}</h3>
+            <div class="quiz-table">
+                <table class="table table-hover more_ghummi table-bordered text-center align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Quiz ID</th>
+                            <th scope="col">Quiz Title</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for quiz in chapter.quizzes%}
+                        <tr>
+                            <th scope="row">#{{quiz.quiz_id}}</th>
+                            <td>{{quiz.title}}</td>
+                            <td>
+                                <a class="text-decoration-none " href="/dashboard/quiz/{{quiz.quiz_id}}">
+                                    <button type="submit" class="view_btn">View
+                                        <i class="ri-eye-2-line"></i>
+                                    </button>
+                                </a>
+                                <button type="submit" class="chapter-edit-btn" data-bs-toggle="modal"
+                                    data-bs-target="#edit_{{quiz.quiz_id}}">Edit
+                                    <i class="ri-edit-line"></i>
+                                </button>
+                                <button type="submit" class="chapter-delete-btn" data-bs-toggle="modal"
+                                    data-bs-target="#delete_{{quiz.quiz_id}}">Delete
+                                    <i class="ri-delete-bin-6-line"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Delete Modal -->
+                        <div class="modal fade" id="delete_{{quiz.quiz_id}}" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5">Delete Quiz</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure want to delete {{quiz.title}}?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form method="POST">
+                                            <input type="hidden" name="_method" value="delete">
+                                            <input type="hidden" name="quiz_id" value="{{quiz.quiz_id}}">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="delete-btn">Delete</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Edit Modal -->
+                        <div class="modal fade" id="edit_{{quiz.quiz_id}}" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5">Edit Quiz</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <form method="POST" enctype="multipart/form-data">
+                                        <input type="hidden" name="_method" value="edit">
+                                        <input type="hidden" name="quiz_id" value="{{quiz.quiz_id}}">
+                                        <div class="modal-body">
+
+                                            <div class="mb-3">
+                                                <label for="title"
+                                                    class="col-form-label d-block text-start">Title:</label>
+                                                <input type="text" id="title" name="title" value="{{quiz.title}}"
+                                                    minlength="8" maxlength="30">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="quiz_d" class="col-form-label d-block text-start ">Quiz
+                                                    Date:</label>
+                                                <input type="date" id="quiz_d" name="quiz_date"
+                                                    value="{{quiz.quiz_date}}" placeholder="YYYY-MM-DD">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="quiz_dur"
+                                                    class="col-form-label d-block text-start">Duration:</label>
+                                                <input type="number" id="quiz_dur" name="duration"
+                                                    value="{{quiz.duration}}">
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Done</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        {%endfor%}
+        {%else%}
+        <div class="mt-3 card mb-3 d-flex justify-content-center align-items-center ">
+            <img src="{{ url_for('static', filename='image/not_found1.svg') }}" , height="500px" alt="not_found">
+            <div class="text-center mb-4">
+                <h3 class="rang">No Quizzes found. Time to add some!</h3>
+            </div>
+
+        </div>
+
+    </div>
+    {%endif%}
+
+
+
+    <script>
+        var courses_list = JSON.parse('{{ courses_list | tojson | safe }}');
+
+    </script>
+    <script src="{{ url_for('static', filename='js/admin_quiz.js') }}"></script>
+    {%endblock%}

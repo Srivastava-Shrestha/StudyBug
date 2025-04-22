@@ -1,0 +1,270 @@
+@font-face {
+    font-family: 'KG';
+    src: url('../font/KGBlankSpaceSketch.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../font/Gilroy-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../font/Gilroy-Bold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroysemi';
+    src: url('../font/Gilroy-SemiBold.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root{
+    --bg-color:rgb(239, 240, 241);
+    --text-color:rgb(53, 53, 53);
+    --cyan-color:rgb(113, 176, 244);
+}
+.dark{
+    --bg-color:rgb(53, 53, 53);
+    --text-color:rgb(239,240,241);
+}
+
+body {
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    background: var(--bg-color);
+    color:var(--text-color);
+
+
+}
+
+*, *::before, *::after {
+    box-sizing: content-box;
+  }
+
+/* Header Styles */
+h1 {
+    font-weight: 800;
+    font-size: 2.5em;
+    margin: 0;
+
+}
+
+h2 {
+    font-weight: 800;
+    font-size: 2em;
+    margin: 0;
+}
+
+h3 {
+    font-weight: 600;
+    font-size: 1.75em;
+    margin: 0;
+}
+
+h4 {
+    font-weight: 600;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+h5 {
+    font-weight: 400;
+    font-size: 1.25em;
+    margin: 0;
+}
+
+h6 {
+    font-weight: 400;
+    font-size: 1.1em;
+    margin: 0;
+}
+
+
+/* Paragraph Styles */
+p {
+    font-weight: 400;
+    font-size: 1.1em;
+    margin: 0;
+}
+
+.kg-text {
+    font-weight: 400;
+    font-size: 2em;
+    margin: 0;
+    font-family: 'KG';
+}
+
+.kg-text2 {
+    font-weight: 400;
+    font-size: 1.5em;
+    margin: 0;
+    font-family: 'KG';
+}
+
+.kg-text3 {
+    font-weight: 400;
+    font-size: 1em;
+    margin: 0;
+    font-family: 'KG';
+
+}
+
+.kg-text-logo {
+    font-weight: 400;
+    font-size: 1.5em;
+    margin: 0;
+    font-family: 'KG';
+    color: rgb(143, 51, 213);
+}
+
+/* ########### */
+
+.cus-card1 {
+    padding: 20px;
+    background: linear-gradient(315deg, rgba(255, 222, 233, 0.2) 0%, rgba(181, 255, 252, 0.2) 100%);
+    border-radius: 20px;
+    border: 1px rgb(191, 194, 193) solid;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+}
+
+.cus-card2 {
+    padding: 20px;
+    background: linear-gradient(315deg, rgba(255, 222, 233, 0.2) 0%, rgba(181, 255, 252, 0.2) 100%);
+    border-radius: 20px;
+    border: 1px rgb(191, 194, 193) solid;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 450px;
+}
+
+.cus-card3 {
+    padding: 20px;
+    background: linear-gradient(315deg, rgba(255, 222, 233, 0.2) 0%, rgba(181, 255, 252, 0.2) 100%);
+    border-radius: 20px;
+    /* border: 5px solid white;  */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.cus-card4 {
+    background: linear-gradient(315deg, rgba(255, 222, 233, 0.2) 0%, rgba(181, 255, 252, 0.2) 100%);
+    border-radius: 20px;
+    /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); */
+    border: 1px rgb(191, 194, 193) solid;
+    position: relative;
+    background-color: rgb(239, 244, 245);
+
+}
+
+.cus-card5 {
+    padding: 3px;
+    border-radius: 15px;
+    background-color: white;
+    border: 1px solid rgb(149, 150, 151);
+    position: relative;
+}
+
+
+.change-pic {
+    color: rgb(68, 68, 68);
+    font-weight: 700;
+    font-size: larger;
+    border-color: rgba(42, 42, 42, 0.76);
+}
+
+.change-pic:hover {
+    color: white;
+    border-color: transparent;
+    background-color: rgba(110, 74, 255, 0.659);
+}
+
+.remove-pic {
+    color: rgb(39, 39, 39);
+    font-weight: 700;
+    border-color: rgba(28, 28, 28, 0.133);
+    background-color: rgba(227, 24, 24, 0.707);
+}
+
+.remove-pic:hover {
+    border-color: transparent;
+    color: white;
+    background-color: rgb(208, 24, 0);
+}
+
+/* ########### */
+
+.dubbu {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+
+.bubbu {
+    position: absolute;
+    left: 10px;
+    bottom: 1px;
+    pointer-events: none;
+    font-size: 1.7rem;
+}
+
+
+.lab {
+    font-weight: 600;
+    font-family: 'Gilroysemi', sans-serif;
+}
+
+/* ############ */
+
+.cus-btn {
+    background-color: rgb(74, 174, 255);
+    color: white;
+    width: 100%;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s, color 0.3s;
+    box-shadow: 4px 4px 0.5px #353535;
+    outline: none;
+    padding: 7.5px;
+    border: transparent;
+    border: 2px solid transparent;
+
+}
+
+.cus-btn:hover {
+    border: 2px solid #353535;
+    box-shadow: 4px 4px 0.5px #353535, inset 0px 0px 15px 3px #b2a3cb5e;
+    color: rgb(74, 174, 255);
+    background-color: rgba(240, 248, 255, 0.774);
+}
+
+.cus-btn i {
+    font-weight: bold;
+    transform: scale(10);
+}
+
+.rang{
+    color:rgb(74, 174, 255) ;
+}
+.search:hover{
+    background-color: rgb(74, 174, 255,0.5);
+}

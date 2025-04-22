@@ -1,0 +1,172 @@
+{%extends "admin_base.html"%}
+{%block title%}Course{%endblock%}
+{%block content%}
+
+
+<div class="base_container">
+   
+        
+  
+    <div class="d-flex justify-content-between ms-2">
+        <h2 class="mx-1 mb-2 text-muted">Courses</h2>
+        <div class="d-flex justify-content-center align-items-center ">
+            <form method="POST">
+                <input type="hidden" name="_method" value="search">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search Course" aria-label="Search" name="name">
+                    <button class="btn btn-outline-secondary search" type="submit" id="search"><i class="ri-search-eye-line"></i></button>
+                  </div>
+            </form>
+        </div>
+        <div>
+            <button type="submit" class="add_btn " data-bs-toggle="modal" data-bs-target="#create">
+                <i class="ri-add-circle-line icon"></i>Add New Course
+            </button>
+        </div>
+
+        <!-- Create Model -->
+
+        <div class="modal fade" id="create" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Create New Course</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="_method" value="create">
+                        <div class="modal-body">
+
+                            <div class="mb-3">
+                                <label for="course_name" class="col-form-label">Name:</label>
+                                <input type="text" id="course_name" name="name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="course_des" class="col-form-label">Description:</label>
+                                <input id="course_des" name="description" minlength="45" maxlength="90">
+                            </div>
+                            <div>
+                                <label for="img" class="col-form-label">Banner Image:</label>
+                                <input type="file" name="image" id="img" accept="image/*">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%if courses_list %}
+    <div class="test">
+        {% for each in courses_list %}
+        <div class="course_card">
+            <div class="course_pic">
+                <img src="{{ url_for('static', filename='image/courses/' + each.image) }}" alt="course pic">
+            </div>
+            <div class="course_body">
+                <h5>{{each.name}}</h5>
+                <p class="card-text text-wrap">{{each.description}}</p>
+                <div class="footer-btn">
+                    <a class="text-decoration-none " href="/dashboard/course/{{each.course_id}}">
+                        <button type="submit" class="edit-btn">View
+                            <i class="ri-eye-2-line"></i>
+                        </button>
+                    </a>
+                    <button type="submit" class="view_btn" data-bs-toggle="modal"
+                        data-bs-target="#edit_{{each.course_id}}">Edit
+                        <i class="ri-edit-line"></i>
+                    </button>
+                    
+                    <button type="submit" class="delete-btn" data-bs-toggle="modal"
+                        data-bs-target="#delete_{{each.course_id}}">Delete
+                        <i class="ri-delete-bin-6-line"></i>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Edit Modal -->
+        <div class="modal fade" id="edit_{{each.course_id}}" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Edit Course</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="_method" value="edit">
+                        <input type="hidden" name="course_id" value="{{each.course_id}}">
+                        <div class="modal-body">
+
+                            <div class="mb-3">
+                                <label for="course_name" class="col-form-label">Name:</label>
+                                <input type="text" id="course_name" name="name" value="{{each.name}}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="course_des" class="col-form-label">Description:</label>
+                                <input id="course_des" name="description" value="{{each.description}}" minlength="45"
+                                    maxlength="90">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Done</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Delete Model -->
+        <div class="modal fade" id="delete_{{each.course_id}}" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Delete Course</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure want to delete {{each.name}}?
+                    </div>
+                    <div class="modal-footer">
+                        <form method="POST">
+                            <input type="hidden" name="_method" value="delete">
+                            <input type="hidden" name="course_id" value="{{each.course_id}}">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="delete-btn">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        {% endfor %}
+    </div>
+    {%else%}
+    <div class="mt-3 card mb-3 d-flex justify-content-center align-items-center ">
+        <img src="{{ url_for('static', filename='image/not_found1.svg') }}" , height="500px" alt="not_found">
+        <div class="text-center mb-4">
+            <h3 class="rang">No Courses found.</h3>
+        </div>
+
+    </div>
+    {%endif%}
+
+</div>
+
+
+
+
+
+
+
+
+{%endblock%}

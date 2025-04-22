@@ -1,0 +1,118 @@
+{%extends "user_base.html"%}
+{%block title%}Dashboard{%endblock%}
+{%block content%}
+
+<div class="graph_card">
+    <h3 class="ms-3 pt-2">Performance Section</h3>
+    <div class="ms-5 mt-3">
+        <div class="row">
+            <div class="col-md-6 ">
+                <div class="card user_bar_card">
+                    <h4 class="text-muted m-2">Score Trend</h4>
+                    <div class="card-body">
+                        <canvas id="user_bar_chart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 ms-2">
+                <div class="card user_pie_card">
+                    <h4 class="ms-3 mt-3 text-muted">Attempt Non-Attempt Ratio</h4>
+                    <div class="card-body pie_chart">
+                        <canvas id="user_pie_chart"></canvas>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="trending_card mt-5">
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <h3 class="pt-3 ms-3">Trending Courses</h3>
+        </div>
+        <div class="d-flex justify-content-center align-items-center pt-3 me-3">
+            <form method="POST">
+                <input type="hidden" name="_method" value="search">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search Course" aria-label="Search" name="name">
+                    <button class="btn btn-outline-secondary search" type="submit" id="search"><i
+                            class="ri-search-eye-line"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="test">
+        {%for each in course_list%}
+        <div class="course_card">
+            <div class="course_pic">
+                <img src="{{ url_for('static', filename='image/courses/'+ each.image) }}" alt="course pic">
+            </div>
+            <div class="course_body mb-3">
+                <h5>{{each.name}}</h5>
+                <p class="card-text text-wrap">{{each.description}}</p>
+                <div class="footer-btn d-grid ">
+
+                    <button type="submit" class="enroll-btn" data-bs-toggle="modal"
+                        data-bs-target="#enroll_{{each.course_id}}" {%if each.course_id in enroll_courses_id%} disabled
+                        {%endif%}>
+                        {%if each.course_id in enroll_courses_id%}
+                        Already Enrolled
+                        {%else%}
+                        Enroll Course
+                        {%endif%}
+                        <i class="ri-edit-line"></i>
+                    </button>
+
+
+                </div>
+            </div>
+
+        </div>
+        <!-- Enroll model -->
+        <div class="modal fade" id="enroll_{{each.course_id}}" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Enroll Course</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to enroll this Course?
+                    </div>
+                    <div class="modal-footer">
+                        <form method="POST">
+                            <input type="hidden" name="_method" value="enroll">
+                            <input type="hidden" name="course_id" value="{{each.course_id}}">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                            <button type="submit" class="btn btn-success">Yes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+
+</div>
+
+
+
+
+
+<script>
+    var score_list = {{ score_list }}
+    var overall_list = {{ overall_list }}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="{{ url_for('static', filename='js/user_chart.js') }}"></script>
+
+
+
+
+
+
+{%endblock%}

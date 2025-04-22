@@ -1,0 +1,112 @@
+.m-nav{
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+}
+
+.mynav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 30px;
+    background-color: white;
+    padding: 10px;
+}
+
+
+.left-nav{
+    display: flex;
+    
+   
+    align-items: center;
+
+}
+
+.left-nav .logo{
+    height: 50px;
+    margin-right: 10px;
+}
+/* 
+.left-nav .l-text{
+    
+    
+} */
+
+.right-nav{
+    display: flex;
+    
+}
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.image-container {
+    flex: 0 0 50%; /* Set width to 50% and prevent shrinking */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    max-width: 100%; /* Ensure image doesn't exceed container width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.form-container {
+    flex: 1; /* Make the form container take the remaining space */
+    padding: 50px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+    background-color: #ffffff;
+}
+
+
+.form-g {
+    margin-bottom: 20px;
+}
+
+/* ############ */
+
+a{
+    text-decoration: none;
+    color: rgb(74, 174, 255);;
+}
+input {
+    width: 100%;
+    padding-left: 45px;
+    border: 1px solid #ced4da;
+    /* Subtle border */
+    border-radius: 8px;
+    /* Rounded corners */
+    line-height: 2.5;
+    font-size: 1.1rem;
+    color: #495057;
+    /* Text color */
+    background-color: #f9f9f9;
+    /* Light background for modern look */
+    transition: all 0.3s ease;
+    /* Smooth transitions */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    outline: none;
+    /* Remove default focus outline */
+}
+
+input:focus {
+    border-color:var(--cyan-color);
+    /* Highlight border on focus */
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+    /* Glow effect on focus */
+    background-color: #fff;
+    /* Lighten background on focus */
+}
+.bow{
+    height: 40px;
+    /* display: flex; */
+    margin-left: 10px;
+    margin-right: 10px;
+}

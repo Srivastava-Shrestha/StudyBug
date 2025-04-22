@@ -1,0 +1,102 @@
+{%extends "user_base.html"%}
+{%block title%}Quiz{%endblock%}
+{%block content%}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/user_quiz.css') }}">
+{% endblock %}
+<div>
+    <div class="d-flex justify-content-center mt-4">
+        <h3>Upcoming Quizzes</h3>
+    </div>
+    {%if quizzes | length > 0%}
+    <div class="quiz-table">
+        <table class="table table-hover more_ghummi table-bordered text-center align-middle mb-0">
+            <thead>
+                <tr>
+                    <th scope="col">Quiz ID</th>
+                    <th scope="col">No. of questions</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Duration</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for quiz in quizzes%}
+                <tr>
+                    <th scope="row">#{{quiz.quiz_id}}</th>
+                    <td>{{quiz.questions | length }}</td>
+                    <td>{{ quiz.quiz_date.strftime('%Y-%m-%d') }}</td>
+                    <td>{{quiz.duration}}</td>
+                    <td>
+
+                        <button type="submit" class="view_btn" data-bs-toggle="modal"
+                            data-bs-target="#view_{{quiz.quiz_id}}">View
+                            <i class="ri-eye-2-line"></i>
+                        </button>
+                        <a class="text-decoration-none " href="/dashboard/quiz/{{quiz.quiz_id}}/attempt">
+                            <button type="submit" class="quiz-start-btn">Start
+                                <i class="ri-edit-line"></i>
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+                <!-- View Modal -->
+                <div class="modal fade" id="view_{{quiz.quiz_id}}" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5">View Quiz</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <form method="POST">
+                                <input type="hidden" name="_method" value="view">
+                                <input type="hidden" name="quiz_id" value="{{quiz.quiz_id}}">
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label for="title"
+                                            class="col-form-label d-block text-start fw-semibold">Chapter:</label>
+                                        <p>{{quiz.chapter.name}}</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="title"
+                                            class="col-form-label d-block text-start fw-semibold">Title:</label>
+                                        <p>{{quiz.title}}</p>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="quiz_d" class="col-form-label d-block text-start fw-semibold">Quiz
+                                            Date:</label>
+                                        <p>{{ quiz.quiz_date.strftime('%Y-%m-%d')}}</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="quiz_dur"
+                                            class="col-form-label d-block text-start fw-semibold">Duration:</label>
+                                        <p>{{quiz.duration}}</p>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+    {%else%}
+    <div class="mt-3 card mb-3 d-flex justify-content-center align-items-center ">
+        <img src="{{ url_for('static', filename='image/not_found1.svg') }}" , height="500px" alt="not_found">
+        <div class="text-center mb-4">
+            <h3 class="rang">Ooops! No quizzes available yet. Stay tuned!</h3>
+        </div>
+
+    </div>
+    {%endif%}
+</div>
+{%endblock%}

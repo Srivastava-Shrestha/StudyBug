@@ -1,0 +1,109 @@
+{%extends "admin_base.html"%}
+{%block title%}Dashboard{%endblock%}
+{%block content%}
+
+<div>
+    <div class="base_container">
+        <h2 class="mx-1 mb-2 text-muted">Dashboard</h2>
+        <div class="d-flex justify-content-center ">
+            <div class="card  small-c">
+                <div class="card-body">
+                    <div class="d-flex ">
+                        <div class="me-2">
+                            <img src="{{ url_for('static', filename='image/users1.png') }} " , height="50px">
+                        </div>
+                        <div>
+                            <h5 class="">Total Users</h5>
+                            <p class="mb-3">{{stats_list[0]}}</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card  small-c">
+                <div class="card-body">
+                    <div class="d-flex ">
+                        <div class="me-2">
+                            <img src="{{ url_for('static', filename='image/course12.png') }} " height="50px">
+                        </div>
+                        <div class="">
+                            <h5 class="mt-1">Total Courses</h5>
+                            <P lass="mb-3">{{stats_list[1]}}</P>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card  small-c">
+                <div class="card-body">
+                    <div class="d-flex ">
+                        <div class="me-2">
+                            <img class="" src="{{ url_for('static', filename='image/chapter.png') }} " , height="30px">
+                        </div>
+                        <div class="">
+                            <h5 class="mt-1">Average Chapters</h5>
+                            <P class="mb-3">{{stats_list[2] | round(1)}}</P>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card  small-c">
+                <div class="card-body">
+                    <div class="d-flex ">
+                        <div class="me-2">
+                            <img class="" src="{{ url_for('static', filename='image/quizz.png') }} " height="50px">
+                        </div>
+                        <div class="">
+                            <h5 class="mt-1">Total Quiz</h5>
+                            <P lass="mb-3">{{stats_list[3]}}</P>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-4 text-muted">Overview</h2>
+        <div class="base_container">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card bar_card">
+                        <h3 class="ms-3 mt-4 text-muted">Platform Summary</h3>
+                        <div class="card-body ">
+                            <canvas id="bar_chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card pie_card">
+                        <h3 class="ms-3 mt-4 text-muted">Attempt Non-Attempt Ratio</h3>
+                        <div class="card-body pie-height">
+                            <canvas id="pie_chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        var stats_list = {{ stats_list }}
+        var pie_list = {{ pie_list }}
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="{{ url_for('static', filename='js/chart.js') }}"></script>
+
+
+
+    {%endblock%}

@@ -1,0 +1,77 @@
+{%extends "user_base.html"%}
+{%block title%}Attempt{%endblock%}
+{%block content%}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/user_question.css') }}">
+{% endblock %}
+<div class="total_container m-2">
+    <div class="d-flex justify-content-end align-items-center">
+        <div class="text-center title">
+            <p>{{quiz.title}}</p>
+        </div>
+        <div class="text-end d-flex justify-content-center align-items-center timer">
+            <div>
+                <img  src="{{ url_for('static', filename='image/result.png') }}" height="50px">
+            </div>
+            <div class="d-flex  align-items-center ">
+                <h4 class="fw-semibold text-muted me-1">Score: {{result}}%</h4>
+            </div>
+        </div>
+
+
+    </div>
+    <form method="POST">
+        {%for question in quiz.questions%}
+        <div class="question_container">
+            <p class="p-2 text-black">Question {{loop.index}}: {{question.statement}}</p>
+            <div class="mt-1 p-2">
+                <div class="form-check">
+                    {% if correct_options[loop.index0] == 1 %}
+                    <span class="correct-tick"><i class="ri-check-double-line"></i></span>
+                    {% endif %}
+                    <input class="form-check-input" type="radio" name="question_{{ loop.index }}"
+                        id="option1_{{ loop.index }}" value=1 {%if select_options[loop.index0]==1%} checked{%endif%} disabled>
+                    <label class="form-check-label" for="option1_{{ loop.index }}">
+                        {{question.option1}}
+                    </label>
+                </div>
+                <div class="form-check">
+                    {% if correct_options[loop.index0] == 2 %}
+                    <span class="correct-tick"><i class="ri-check-double-line"></i></span>
+                    {% endif %}
+                    <input class="form-check-input" type="radio" name="question_{{ loop.index }}"
+                        id="option2_{{ loop.index }}" value=2 {%if select_options[loop.index0]==2%} checked{%endif%} disabled>
+                    <label class="form-check-label" for="option2_{{ loop.index }}">
+                        {{question.option2}}
+                    </label>
+                </div>
+                <div class="form-check">
+                    {% if correct_options[loop.index0] == 3 %}
+                    <span class="correct-tick"><i class="ri-check-double-line"></i></span>
+                    {% endif %}
+                    <input class="form-check-input" type="radio" name="question_{{ loop.index }}"
+                        id="option3_{{ loop.index }}" value=3 {%if select_options[loop.index0]==3%} checked{%endif%} disabled>
+                    <label class="form-check-label" for="option3_{{ loop.index }}">
+                        {{question.option3}}
+                    </label>
+                </div>
+                <div class="form-check">
+                    {% if correct_options[loop.index0] == 4 %}
+                    <span class="correct-tick"><i class="ri-check-double-line"></i></span>
+                    {% endif %}
+                    <input class="form-check-input" type="radio" name="question_{{ loop.index }}"
+                        id="option4_{{ loop.index }}" value=4 {%if select_options[loop.index0]==4%} checked{%endif%} disabled>
+                    <label class="form-check-label" for="option4_{{ loop.index }}">
+                        {{question.option4}}
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        {%endfor%}
+
+       
+    </form>
+</div>
+
+{%endblock%}

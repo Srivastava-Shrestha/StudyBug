@@ -1,0 +1,96 @@
+{%extends "user_base.html"%}
+{%block title%}Attempt{%endblock%}
+{%block content%}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/user_question.css') }}">
+{% endblock %}
+<div class="total_container m-2">
+    <div class="d-flex justify-content-end align-items-center">
+        <div class="text-center title">
+            <p>{{quiz.title}}</p>
+        </div>
+        <div class="text-end d-flex justify-content-center timer">
+            <div>
+                <img  src="{{ url_for('static', filename='image/timer.png') }}">
+            </div>
+            <div lass="d-flex  align-items-center ">
+                <p class="fw-semibold pt-3 pe-2">Quiz-Timer:{{quiz.duration}}:00</p>
+            </div>
+        </div>
+
+
+    </div>
+    <form method="POST">
+        {%for question in quiz.questions%}
+        <div class="question_container">
+            <p class="p-2 text-black">Question {{loop.index}}: {{question.statement}}</p>
+            <div class="mt-1 p-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question_{{ loop.index }}"
+                        id="option1_{{ loop.index }}" value=1>
+                    <label class="form-check-label" for="option1_{{ loop.index }}">
+                        {{question.option1}}
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question_{{ loop.index }}"
+                        id="option2_{{ loop.index }}" value=2>
+                    <label class="form-check-label" for="option2_{{ loop.index }}">
+                        {{question.option2}}
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question_{{ loop.index }}"
+                        id="option3_{{ loop.index }}" value=3>
+                    <label class="form-check-label" for="option3_{{ loop.index }}">
+                        {{question.option3}}
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question_{{ loop.index }}"
+                        id="option4_{{ loop.index }}" value=4>
+                    <label class="form-check-label" for="option4_{{ loop.index }}">
+                        {{question.option4}}
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        {%endfor%}
+
+        <div>
+            <button type="submit" class="quiz-submit-btn">Submit
+            </button>
+        </div>
+    </form>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Extract the quiz duration (assumed in minutes)
+        let duration = parseInt("{{ quiz.duration }}") * 60; // Convert minutes to seconds
+        let timerDisplay = document.querySelector(".timer p"); // Locate the timer display
+        let form = document.querySelector("form"); // Locate the quiz form
+
+        function updateTimerDisplay() {
+            let minutes = Math.floor(duration / 60);
+            let seconds = duration % 60;
+            timerDisplay.textContent = `Quiz-Timer: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
+
+        // Countdown function
+        function countdown() {
+            if (duration <= 0) {
+                form.submit(); // Auto-submit when time runs out
+            } else {
+                updateTimerDisplay();
+                duration--;
+                setTimeout(countdown, 1000);
+            }
+        }
+
+        // Start the countdown
+        countdown();
+    });
+</script>
+
+{%endblock%}

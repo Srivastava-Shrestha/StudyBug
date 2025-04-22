@@ -1,0 +1,48 @@
+{%extends "user_base.html"%}
+{%block title%}Attempt{%endblock%}
+{%block content%}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/user_quiz.css') }}">
+{% endblock %}
+<div>
+    <div class="d-flex justify-content-center mt-4">
+        <h3>Result</h3>
+    </div>
+    {%if result %}
+    <div class="quiz-table">
+        <table class="table table-hover more_ghummi table-bordered text-center align-middle mb-0">
+            <thead>
+                <tr>
+                    <th scope="col">Quiz ID</th>
+                    <th scope="col">No. of questions</th>
+                    <th scope="col">Duration</th>
+                    <th scope="col">Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for each in result%}
+                <tr>
+                    <th scope="row">#{{each.quiz_id}}</th>
+                    <td>{{each.quiz.questions | length }}</td>
+                    <td>{{each.quiz.duration}}</td>
+                    <td>{{each.result}}</td>
+                </tr>
+               
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+    {%else%}
+    <div class="mt-3 card mb-3 d-flex justify-content-center align-items-center ">
+        <img src="{{ url_for('static', filename='image/not_found1.svg') }}" , height="500px" alt="not_found">
+        <div class="text-center mb-4">
+            <h3 class="rang">Looks like there's nothing here yet. Go ace a quiz!</h3>
+        </div>
+
+    </div>
+    {%endif%}
+
+
+</div>
+{% endblock %}
+

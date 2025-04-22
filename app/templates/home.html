@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='image/Shrestha.png') }}">
+    <title>StudyBug</title>
+
+</head>
+
+<body style="background: linear-gradient(180deg, rgba(6, 63, 234, 0.85), rgba(6, 98, 236, 0.85), rgba(8, 100, 238, 0.85)), 
+             url('static/image/homi2.jpg'); 
+             background-repeat: no-repeat; 
+             background-size: cover; 
+             background-position: center;
+             background-blend-mode: lighten;">
+
+
+
+
+    <div class="m-nav mt-3 d-flex justify-content-center ">
+        <nav class="mynav " style="width: 90%;">
+            <div class="left-nav ">
+                <img src="{{ url_for('static', filename='image/Shrestha.png') }}" alt="Logo" class="logo">
+                <h1 class="kg-text-logo l-text">StudyBug</h1>
+            </div>
+            <div class="right-nav">
+                <ul class="menu_ul mt-2">
+                    <!-- <a class="login" href="/login">
+                        <li>Login</li>
+                    </a> -->
+                    <a href="/">
+                        <li>Home</li>
+                    </a>
+                    <a href="/dashboard">
+                        <li>Dashboard</li>
+                    </a>
+                    <a href="/dashboard/course">
+                        <li>Courses</li>
+                    </a>
+
+                    <a class="btno" href="/signup">
+                        <li class="">Get Started</li>
+                    </a>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="d-flex justify-content-end ">
+        <div class="d-flex justify-content-end">
+            <div>
+                <h1 class="_home mt-5">Study without <span class="error-text">errors</span>,</h1>
+                <h1 class="_home">Crush your exams</h1>
+                <h1 class="_home">With <span class="confidence-text">confidence</span>!</h1>
+
+                <!-- <p>Stay sharp with quizzes on current affairs, history, and science. Boost your knowledge and stay ahead!</p> -->
+                <div class="d-flex mt-5">
+                    <a href="/login" class=" login me-3 text-decoration-none"><i class="ri-login-circle-line fs-3 me-2"></i>Login</a>
+                    <a href="/signup" class=" signup btn-lg text-decoration-none"><i class="ri-send-plane-line fs-3 me-2"></i>Create Account</a>
+                </div>
+            </div>
+            <div>
+                <img class="mt-2" src="{{ url_for('static', filename='image/home.png') }}" height="620px">
+
+            </div>
+        </div>
+
+    </div>
+    
+
+</body>
+
+</html>

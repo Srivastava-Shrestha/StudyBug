@@ -1,0 +1,46 @@
+.quiz-table {
+    border-radius: 20px;
+    overflow: hidden;
+    /* border: 1px solid rgb(0, 0, 0); */
+    box-shadow: 0 2px 10px rgba(129, 228, 195, 1);
+    margin: 10px;
+    width: 98%;
+    margin-top: 30px;
+    margin-right: 10px;
+}
+
+.view_btn {
+    color: rgb(68, 68, 68);
+    font-weight: 700;
+    border-color: rgba(42, 42, 42, 0.76);
+    border-radius: 5px;
+    margin-bottom: 2px;
+    size: 20px;
+    padding: 5px 10px; 
+    font-size: 13px;
+    margin-right: 4px;
+}
+
+.view_btn:hover {
+    color: white;
+    background-color: rgba(109, 74, 255, 0.6);
+}
+
+.quiz-start-btn {
+    color: rgb(68, 68, 68);
+    background-color: rgb(124, 199, 143);
+    font-family: 'Gilroy';
+    font-weight: 700;
+    border-color: rgba(42, 42, 42, 0.76);
+    border-radius: 5px;
+    /* margin-bottom: 2px; */
+    size: 15px;
+    padding: 5px 10px; 
+    font-size: 13px;
+}
+
+.quiz-start-btn:hover {
+    color: white;
+    background-color: rgba(138, 222, 139, 0.6);
+}
+

@@ -1,0 +1,167 @@
+{%extends "admin_base.html"%}
+{%block title%}Chapter{%endblock%}
+{%block content%}
+
+<div>
+
+    <div class="d-flex justify-content-between">
+        <div>
+            <h3 class="space">{{course.name}}</h3>
+        </div>
+        <div>
+            <button type="submit" class="add_btn " data-bs-toggle="modal" data-bs-target="#create">
+                <i class="ri-add-circle-line icon"></i>Add New Chapter
+            </button>
+        </div>
+
+        <!-- Create Model -->
+
+        <div class="modal fade" id="create" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Create New Chapter</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="_method" value="create">
+                        <div class="modal-body">
+
+                            <div class="mb-3">
+                                <label for="chapter_name" class="col-form-label">Name:</label>
+                                <input type="text" id="chapter_name" name="name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="chapter_des" class="col-form-label">Description:</label>
+                                <input id="chapter_des" name="description">
+                            </div>
+                            <div>
+                                <label for="video" class="col-form-label">Video URL:</label>
+                                <input type="text" name="video" id="video">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%if course.chapters%}
+    <div class="ghummi">
+        <table class="table table-striped table-hover table-bordered more_ghummi text-center align-middle">
+            <thead>
+                <tr>
+                    <th scope="col">Chapter ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                {%for each in course.chapters%}
+                <tr>
+                    <th scope="row">#{{each.chapter_id}}</th>
+                    <td>{{each.name}}</td>
+                    <td>{{each.description}}</td>
+                    <td>
+                        <button type="submit" class="chapter-edit-btn" data-bs-toggle="modal"
+                            data-bs-target="#edit_{{each.chapter_id}}">Edit
+                            <i class="ri-edit-line"></i>
+                        </button>
+                        <button type="submit" class="chapter-delete-btn" data-bs-toggle="modal"
+                            data-bs-target="#delete_{{each.chapter_id}}">Delete
+                            <i class="ri-delete-bin-6-line"></i>
+                        </button>
+                    </td>
+                </tr>
+                <!-- Edit Modal -->
+                <div class="modal fade" id="edit_{{each.chapter_id}}" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5">Edit Chapter</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <form method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="_method" value="edit">
+                                <input type="hidden" name="chapter_id" value="{{each.chapter_id}}">
+                                <div class="modal-body">
+
+                                    <div class="mb-3">
+                                        <label for="chapter_name" class="col-form-label">Name:</label>
+                                        <input type="text" id="chapter_name" name="name" value="{{each.name}}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="chapter_des" class="col-form-label">Description:</label>
+                                        <input id="chapter_des" name="description" value="{{each.description}}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="chapter_url" class="col-form-label">Video URL:</label>
+                                        <input id="chapter_url" name="video" value="{{each.url}}">
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Done</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Delete Model -->
+                <div class="modal fade" id="delete_{{each.chapter_id}}" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5">Delete Chapter</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure want to delete {{each.name}}?
+                            </div>
+                            <div class="modal-footer">
+                                <form method="POST">
+                                    <input type="hidden" name="_method" value="delete">
+                                    <input type="hidden" name="chapter_id" value="{{each.chapter_id}}">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="delete-btn">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </tbody>
+        </table>
+
+    </div>
+    {%else%}
+    <div class="mt-3 card mb-3 d-flex justify-content-center align-items-center ">
+        <img src="{{ url_for('static', filename='image/not_found1.svg') }}" , height="500px" alt="not_found">
+        <div class="text-center mb-4">
+            <h3 class="rang">No Chapters found.</h3>
+        </div>
+
+    </div>
+    {%endif%}
+
+
+
+</div>
+
+
+
+
+
+
+
+
+{%endblock%}

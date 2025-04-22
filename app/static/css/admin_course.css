@@ -1,0 +1,289 @@
+.test{
+    display:flex;
+    flex-wrap: wrap;
+    /* gap: 10px; */
+    justify-content: space-between;
+}
+
+
+
+.add_btn {
+    color: rgb(68, 68, 68);
+    font-family: 'Gilroy';
+    font-weight: 700;
+    border-color: rgba(42, 42, 42, 0.76);
+    border-radius: 5px;
+    margin-bottom: 2px;
+    size: 20px;
+    padding: 5px 10px; 
+    font-size: 15px;
+    margin-right: 20px;
+
+}
+.icon{
+    margin-right: 5px;
+}
+.add_btn:hover {
+    color: white;
+    background-color: rgba(112, 133, 201, 0.6);
+}
+    
+
+.course_card{
+    background-color:rgb(113, 176, 244,0.2);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    overflow: hidden;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 20px rgba(139, 224, 196, 0.1);
+    width: 370px;
+    /* height: 250px; */
+    transition: all 0.3s ease;
+    padding-bottom: 5px;
+    
+}
+.course_card:hover{
+    background-color: rgba(113, 176, 244, 0.3);
+}
+
+.course_pic{ 
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.course_pic img {
+    width: 100%; 
+    height: 150px; 
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.course_body{
+    padding: 10px;
+    /* margin-top: 2px; */
+    /* padding-bottom: 50px; */
+
+}
+.course_body h5 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #445bef;
+    text-align: left;
+    margin-top: 1px;
+}
+
+.course_body p {
+    color: #000000;
+    font-size: 0.9rem;
+    /* margin-top: 1px; */
+    margin-bottom: 3px;
+    /* padding-bottom: 5px; */
+}
+
+
+
+.edit-btn {
+    color: rgb(68, 68, 68);
+    font-family: 'Gilroy';
+    font-weight: 700;
+    border-color: rgba(42, 42, 42, 0.76);
+    border-radius: 5px;
+    margin-bottom: 2px;
+    size: 20px;
+    padding: 5px 10px; 
+    font-size: 15px;
+}
+
+.edit-btn:hover {
+    color: white;
+    background-color: rgba(138, 222, 139, 0.6);
+}
+
+.delete-btn {
+    color: rgb(39, 39, 39);
+    font-family: 'Gilroy';
+    border-radius: 5px;
+    font-weight: 700;
+    margin-top: 4px;
+    border-color: rgba(28, 28, 28, 0.133);
+    background-color: rgba(227, 24, 24, 0.707);
+    margin-bottom: 2px;
+    padding: 5px 10px; 
+    font-size: 15px; 
+
+}
+
+.delete-btn:hover {
+    color: white;
+    background-color: rgba(227, 24, 24);
+}
+
+.footer-btn{
+    margin-top: auto;
+    gap: 5px; /* Small gap between buttons */
+    /* margin-bottom: 5px; */
+}
+    
+
+input {
+    padding: 5px;
+    display: block;
+    width: 100%;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+
+    font-size: 1.1rem;
+    color: #495057;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+input:focus {
+    border-color:var(--cyan-color);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+    background-color: #fff;
+}
+
+.ghummi{
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgb(0, 0, 0);
+    box-shadow: 0 2px 10px rgba(129, 228, 195, 0.5);
+    margin: 10px;
+}
+.more_ghummi{
+    border-collapse: separate;
+}
+
+/* .chapter_back{
+    background-color: rgb(113, 176, 244,0.2);
+    border-radius: 15px;
+} */
+
+.space{
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.chapter-edit-btn {
+    color: rgb(68, 68, 68);
+    font-family: 'Gilroy';
+    font-weight: 700;
+    border-color: rgba(42, 42, 42, 0.76);
+    border-radius: 5px;
+    /* margin-bottom: 2px; */
+    size: 15px;
+    padding: 5px 10px; 
+    font-size: 12px;
+}
+
+.chapter-edit-btn:hover {
+    color: white;
+    background-color: rgba(138, 222, 139, 0.6);
+}
+
+.chapter-delete-btn {
+    color: rgb(39, 39, 39);
+    font-family: 'Gilroy';
+    border-radius: 5px;
+    font-weight: 700;
+    margin-top: 4px;
+    margin-left: 5px;
+    border-color: rgba(28, 28, 28, 0.133);
+    background-color: rgba(227, 24, 24, 0.707);
+    /* margin-bottom: 2px; */
+    padding: 5px 10px; 
+    font-size: 12px; 
+
+}
+
+.chapter-delete-btn:hover {
+    color: white;
+    background-color: rgba(227, 24, 24);
+}
+
+.view_btn {
+    color: rgb(68, 68, 68);
+    font-weight: 700;
+    border-color: rgba(42, 42, 42, 0.76);
+    border-radius: 5px;
+    background-color: rgba(109, 74, 255, 0.5);
+    margin-bottom: 2px;
+    size: 20px;
+    padding: 5px 10px; 
+    font-size: 15px;
+    margin-right: 4px;
+}
+
+.view_btn:hover {
+    color: white;
+    background-color: rgba(109, 74, 255, 0.6);
+}
+
+.user-table {
+    border-radius: 20px;
+    overflow: hidden;
+    /* border: 1px solid rgb(0, 0, 0); */
+    box-shadow: 0 2px 10px rgba(129, 228, 195, 1);
+    margin: 10px;
+    width: 98%;
+    margin-top: 30px;
+    margin-right: 10px;
+}
+.user-delete-btn {
+    color: rgb(255, 255, 255);
+    font-family: 'Gilroy';
+    border-radius: 5px;
+    font-weight: 700;
+    margin-top: 4px;
+    margin-left: 5px;
+    border-color: rgba(28, 28, 28, 0.133);
+    background-color: rgb(246, 53, 53);
+    /* margin-bottom: 2px; */
+    padding: 5px 10px; 
+    font-size: 12px; 
+
+}
+
+.user-delete-btn:hover {
+    color: white;
+    background-color: rgba(227, 24, 24);
+}
+
+.jagah{
+    margin-left: 330px;
+    margin-top: 3px;
+}
+
+
+.bar_card{
+    height: 450px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+.pie_card{
+    height: 450px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+.pie-height{
+    width: 460px;
+    margin-top: -20px;
+
+}
+.small-c{
+    /* box-shadow: 0 2px 10px rgba(129, 228, 195, 1); */
+    /* border: #555 solid 0.5px; */
+    width: 270px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    margin-right: 60px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}

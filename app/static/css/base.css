@@ -1,0 +1,150 @@
+.parent {
+    display: flex;
+    height: 100vh;
+    
+}
+
+.left {
+    width: 200px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    margin: 5px;
+    flex-shrink: 0; 
+}
+
+.right {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    /* margin: 5px; */
+    padding: 5px;
+    overflow: hidden;
+}
+
+.right-top {
+    height: 8vh;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    margin: 5px;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.right-bottom {
+    flex: 1; 
+    overflow-y: auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    margin: 5px;
+    padding: 10px;
+    scrollbar-width: none;
+   
+}
+
+
+.left ul{
+    
+    padding: 10px;
+    list-style: none;
+    /* height: 100%; */
+   
+}
+
+.left ul li{
+    background-color: rgb(113, 176, 244,0.1);
+    padding: 10px;
+    border-radius: 15px;
+    margin-bottom: 2px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.left ul li:hover{
+    background-color: rgba(113, 176, 244, 0.4); 
+} 
+
+.left ul .active{  
+    background-color: rgba(113, 176, 244, 0.4);
+}
+
+.anchor{
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+
+
+
+.left ul li img{
+    height: 30px;
+    margin-right: 10px;
+    margin-bottom: 4px;
+    margin-left: 10px;
+}
+ 
+.menu{
+    font-family: 'Gilroysemi';
+    font-weight: 500;
+
+}
+
+.logo{
+    height: 45px;
+    margin-right: 10px;
+}
+
+.huhu{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.my-divider{
+    background: rgb(239, 240, 241);
+}
+
+.design{
+    margin-left: 10px;
+    font-size: 35px;
+    
+}
+.bow{
+    height: 40px;
+    /* display: flex; */
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.love{
+    height: 40px;
+    /* display: flex; */
+    
+}
+
+/* #dark_mode{
+   margin-left: auto;
+} */
+
+.top-left,
+.top-right{
+    display: flex;
+    align-items: center;
+}
+
+#pie_chart{
+    max-height: 400px;
+}
+
+.base_container{
+    padding: 15px;
+}

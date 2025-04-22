@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/base.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/admin_course.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='image/Shrestha.png') }}">
+
+    <title>{%block title%}{%endblock%}</title>
+
+
+</head>
+
+
+<body>
+    <div class="parent">
+        <div class="left">
+            <ul>
+                <div class="huhu">
+                    <a href="/">
+                        <img src="{{ url_for('static', filename='image/Shrestha.png') }}" alt="Logo" class="logo">
+                    </a>
+                    <h1 class="kg-text-logo">StudyBug</h1>
+                </div>
+                <a class="anchor" href="/dashboard">
+                    <li class="{% if active_page == 'home' %} active {% endif %}">
+                        <img src="{{ url_for('static', filename='image/Icons/home.png') }}">
+                        <p class="menu">Home</p>
+                    </li>
+                </a>
+                <a class="anchor" href="/dashboard/course">
+                    <li class="{% if active_page == 'course'%} active {% endif %}">
+                        <img src="{{ url_for('static', filename='image/Icons/courses.png') }}">
+                        <p class="menu">Courses</p>
+                    </li>
+                </a>
+                <a class="anchor" href="/dashboard/quiz">
+                    <li class="{% if active_page == 'quiz'%} active {% endif %}">
+                        <img src="{{ url_for('static', filename='image/Icons/quiz.png') }}">
+                        <p class="menu">Quiz</p>
+                    </li>
+                </a>
+                <a class="anchor" href="/dashboard/users">
+                    <li class="{% if active_page == 'users'%} active {% endif %}">
+                        <img src="{{ url_for('static', filename='image/Icons/users.png') }}">
+                        <p class="menu">Users</p>
+                    </li>
+                </a>
+                <a class="anchor" data-bs-toggle="modal" data-bs-target="#logout">
+                    <li>
+                        <img src="{{ url_for('static', filename='image/Icons/logout.png') }}">
+                        <p class="menu">Logout</p>
+                    </li>
+                </a>
+
+
+            </ul>
+        </div>
+        <div class="right">
+            <div class="right-top">
+                <div class="top-left">
+                    <h2 class="design">Hello, Admin!</h2>
+                    <img src="{{ url_for('static', filename='image/Icons/love.png') }}" class="love">
+                </div>
+                <div class="top-right">
+                    
+                    <img src="{{ url_for('static', filename='image/Icons/bow.png') }}" class="bow">
+                </div>
+            </div>
+            <div class="right-bottom">
+                {%block content%}
+                {%endblock%}
+            </div>
+        </div>
+
+    </div>
+
+    <!-- LOGOUT -->
+    <div class="modal fade" id="logout" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">LOGOUT</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to logout?
+                </div>
+                <div class="modal-footer">
+                    <a class="anchor" href="/logout">
+                        <button type="button" class="btn btn-danger">Yes
+                        </button></a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+    <script src="{{ url_for('static', filename='js/user_base.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

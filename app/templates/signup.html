@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/signup.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <title>Signup Page</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='image/Shrestha.png') }}">
+
+</head>
+
+<body>
+    <div class="m-nav mt-3 d-flex justify-content-center ">
+        <nav class="mynav " style="width: 90%;">
+            <div class="left-nav">
+                <a href="/">
+                    <img src="{{ url_for('static', filename='image/Shrestha.png') }}" alt="Logo" class="logo">
+                </a>
+                    <h1 class="kg-text-logo l-text">StudyBug</h1>
+            </div>
+            <div class="right-nav">
+                <img src="{{ url_for('static', filename='image/Icons/bow.png') }}" class="bow">
+
+
+
+            </div>
+        </nav>
+    </div>
+    <div class="container mt-2 mb-3">
+        <div class="image-container">
+            <img src="static/image/sign.svg" alt="Image">
+        </div>
+        <div class="cus-card2">
+            <h1 class="text-center mb-3" >Create an Account</h1>
+
+            <div>
+                <p style="color: red; text-align: center;font-size: 1.3em;margin-top: -10px; ">{{ message }}</p>
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="username" class="form-label lab">Username</label>
+                        <div class="dubbu">
+                            <i class="ri-bear-smile-line bubbu"></i>
+                            <input type="text" placeholder="Choose a Username" name="username" minlength="3" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label lab">Email address</label>
+                        <div class="dubbu">
+                            <i class="ri-mail-line bubbu"></i>
+                            <input type="email" placeholder="Enter your Email Address" name="email"
+                                 aria-describedby="emailHelp" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label lab">Password</label>
+                        <div class="dubbu">
+                            <i class="ri-lock-2-line bubbu"></i>
+                            <input type="password" placeholder="Create a Password"
+                                name="password" minlength="8" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label lab">Confirm Password</label>
+                        <div class="dubbu">
+                            <i class="ri-lock-2-line bubbu"></i>
+                            <input type="password" placeholder="Confirm Password" name="confirm_password" minlength="8" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="cus-btn mt-2">Submit</button>
+                    <div class="d-flex align-items-center mt-3">
+                        <hr class="flex-grow-1"/>
+                        <span>OR</span>
+                        <hr class="flex-grow-1"/>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center my-3">
+                        <p>Already have an Account?
+                        <a class="fw-bold" href="/login">Login</a>
+
+                    </div>
+
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
