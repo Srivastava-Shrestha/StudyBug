@@ -5,7 +5,7 @@ StudyBug is a feature-rich, multi-user quiz platform designed to help students e
 
 
 ## 🚀 Preview
-[![Watch the video](https://github.com/Srivastava-Shrestha/Assets/blob/main/StudyBugCover.png)](https://youtu.be/lq1KsgAVZAI?si=Xo6jDKpvBv8K7N6o)
+[![Watch the video](https://github.com/Srivastava-Shrestha/Assets/blob/main/StudyBug15.png)](https://youtu.be/lq1KsgAVZAI?si=Xo6jDKpvBv8K7N6o)
 
 ## 💻 Built with
 
