@@ -72,6 +72,7 @@ python run.py
 ![Admin Dashboard](https://github.com/Srivastava-Shrestha/Assets/blob/main/StudyBug/StudyBug1.png)
 ![Admin Dashboard](https://github.com/Srivastava-Shrestha/Assets/blob/main/StudyBug/StudyBug2.png)
 ![User Dashboard](https://github.com/Srivastava-Shrestha/Assets/blob/main/StudyBug/StudyBug7.png)
+![Admin Dashboard](https://github.com/Srivastava-Shrestha/Assets/blob/main/StudyBug/StudyBug5.png)
 ![User Dashboard](https://github.com/Srivastava-Shrestha/Assets/blob/main/StudyBug/StudyBug11.png)
 ![Admin Dashboard](https://github.com/Srivastava-Shrestha/Assets/blob/main/StudyBug/StudyBug3.png)
 ![404](https://github.com/Srivastava-Shrestha/Assets/blob/main/StudyBug/StudyBug14.png)
