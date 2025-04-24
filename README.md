@@ -5,6 +5,43 @@ StudyBug is a feature-rich, multi-user quiz platform designed to help students e
 ## 🚀 Preview
 [![Watch the video](https://github.com/Srivastava-Shrestha/Assets/blob/main/StudyBug/StudyBug15.png)](https://youtu.be/lq1KsgAVZAI?si=Xo6jDKpvBv8K7N6o)
 
+<h3 align="center">
+  Demo URL (Please, Open in Desktop):
+  <br>
+  <a href="https://study-bug.vercel.app" target="_blank"> study-bug.vercel.app </a>
+</h3>
+
+<div align="center">
+
+<h3><strong>Test Users</strong></h3>
+
+<table>
+  <thead>
+    <tr>
+      <th align="left">Role</th>
+      <th align="left">Username</th>
+      <th align="left">Password</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Admin</strong></td>
+      <td><code>Shrestha</code></td>
+      <td><code>shrestha30</code></td>
+    </tr>
+    <tr>
+      <td><strong>User</strong></td>
+      <td><code>rahul123</code></td>
+      <td><code>12345678</code></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
 ## 💻 Built with
 
 ### Backend
