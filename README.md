@@ -118,5 +118,5 @@ python run.py
 
 <hr>
 <h3 align="center">
-Thank You
+Thank You 🐻
 </h3>
