@@ -8,7 +8,7 @@ StudyBug is a feature-rich, multi-user quiz platform designed to help students e
 <h3 align="center">
   Demo URL (Please, Open in Desktop):
   <br>
-  <a href="https://study-bug.vercel.app" target="_blank"> study-bug.vercel.app </a>
+  <a href="https://studybug.itshrestha.dev" target="_blank"> studybug.itshrestha.dev </a>
 </h3>
 
 <div align="center">
